@@ -1,12 +1,23 @@
 <template>
     <div class="bottom">
-        bottom
+        <audio :src="url" controls="controls">
+            Your browser does not support the audio element.
+        </audio>
     </div>
 </template>
 
 <script>
     export default {
-        name: "index"
+        name: "index",
+        props:{
+            url:{
+                type:String,
+                default:'',
+            }
+        },
+        created() {
+            console.log('url',this.url);
+        }
     }
 </script>
 

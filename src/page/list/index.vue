@@ -7,7 +7,7 @@
             <List :data='data'></List>
         </div>
 
-        <Bottom></Bottom>
+        <Bottom :url="url"></Bottom>
     </div>
 </template>
 
@@ -29,7 +29,8 @@
         data: function () {
             return {
                 data: [],
-                t: '11'
+                t: '11',
+                url:this.$store.state.detail.playUrl
             }
         },
         methods: {
