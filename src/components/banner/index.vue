@@ -1,5 +1,7 @@
 <template>
-    
+    <div class="banner">
+
+    </div>
 </template>
 
 <script>
@@ -9,5 +11,7 @@
 </script>
 
 <style scoped>
-
+    .banner{
+        height: 30vh;
+    }
 </style>
