@@ -21,7 +21,7 @@ export const getUrl = function (url) {
 };
 
 export const play = function (id) {
-    let url = 'https://v1.itooi.cn/tencent/url?id=' + id + '&quality=128';
+    let url = 'https://v1.itooi.cn/tencent/url?id=' + id + '&quality=128&isRedirect=0';
     return getUrl(url);
 };
 

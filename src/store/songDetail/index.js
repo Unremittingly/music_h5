@@ -1,7 +1,7 @@
 
 const state = {
     id:0,
-    playUrl:''
+    playUrl:'b'
 
 };
 
@@ -20,6 +20,7 @@ const mutations = {
 
     setPlayUrl(state,url){
         state.playUrl = url;
+        // state.url = url;
     }
 
 };

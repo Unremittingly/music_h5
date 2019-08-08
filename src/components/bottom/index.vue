@@ -1,22 +1,33 @@
 <template>
     <div class="bottom">
-        <audio :src="url" controls="controls">
+<!--        {{a}}-->
+        <audio v-bind:src="getPlayUrl" controls="controls">
             Your browser does not support the audio element.
         </audio>
     </div>
 </template>
 
 <script>
+
     export default {
         name: "index",
-        props:{
-            url:{
-                type:String,
-                default:'',
+        data(){
+            return {
+                // url:this.$store.state.detail.playUrl,
+                a:'1',
+            }
+        },
+        computed:{
+            getPlayUrl(){
+                return this.$store.state.detail.playUrl
             }
         },
         created() {
-            console.log('url',this.url);
+            // console.log('url',this.url);
+            let _this = this;
+            setTimeout(function () {
+                _this.a = 10;
+            },3000)
         }
     }
 </script>

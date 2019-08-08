@@ -23,9 +23,12 @@
             play(id){
 
                 let _this = this;
-                let url = 'https://v1.itooi.cn/tencent/url?id=' + id + '&quality=128&isRedirect=0';
                 _this.$store.commit('detail/setId',id);//存vuex
-                _this.$store.commit('detail/setPlayUrl',url);//存vuex
+
+                play(id).then(function (data) {
+                    _this.$store.commit('detail/setPlayUrl',data.data.data);//存vuex
+                });
+
             }
         }
     }
