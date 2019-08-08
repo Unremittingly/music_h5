@@ -1,7 +1,8 @@
 
 const state = {
     id:0,
-    playUrl:'b'
+    playUrl:'b',
+    imgUrl:'//www.baidu.com/img/baidu_resultlogo@2.png'
 
 };
 
@@ -14,8 +15,8 @@ const mutations = {
         state.id = id;
     },
 
-    setPic(state,url){
-        state.url = url;
+    setImgUrl(state,url){
+        state.imgUrl = url;
     },
 
     setPlayUrl(state,url){

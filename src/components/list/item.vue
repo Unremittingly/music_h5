@@ -5,12 +5,12 @@
             <div class="song-album">  {{item.album.albumname}}</div>
         </div>
         <div class="song-singer item-i" v-bind:data-mid="item.singer.mid" v-bind:data-id="item.singer.id">{{item.singer.name}}</div>
-        <div class="song-opera item-i"><el-button type="primary">下载</el-button></div>
+        <div class="song-opera item-i"><i class="el-icon-download"></i></div>
     </div>
 </template>
 
 <script>
-    import {play} from "../../dataManage";
+    import {play,getImgUrl} from "../../dataManage";
     export default {
         name: "item",
         props:{
@@ -28,6 +28,10 @@
                 play(id).then(function (data) {
                     _this.$store.commit('detail/setPlayUrl',data.data.data);//存vuex
                 });
+
+                getImgUrl(id).then(function (data) {
+                    _this.$store.commit('detail/setImgUrl',data.data.data);
+                })
 
             }
         }

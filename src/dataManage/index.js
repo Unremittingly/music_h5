@@ -25,6 +25,11 @@ export const play = function (id) {
     return getUrl(url);
 };
 
+export const getImgUrl = function (id) {
+    let url = 'https://v1.itooi.cn/tencent/pic?id='+id+'&isRedirect=0';
+    return getUrl(url);
+}
+
 export const downLoad = function (id = 0) {
 
 };
