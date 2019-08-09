@@ -5,7 +5,13 @@
         <div class="content">
             <Banner/>
             <el-tabs>
-                <el-tab-pane label="热门" name="first">热门</el-tab-pane>
+                <el-tab-pane label="热门" name="first">
+                    <div class="hot"
+                         v-loading="loading"
+                         element-loading-text="拼命加载中"
+                         element-loading-spinner="el-icon-loading"
+                    >热门</div>
+                </el-tab-pane>
                 <el-tab-pane label="最新" name="second">最新</el-tab-pane>
             </el-tabs>
         </div>
@@ -24,6 +30,11 @@
 
     export default {
         name: "index",
+        data(){
+            return {
+                loading:true
+            }
+        },
         components: {
             Bottom,
             Header,
@@ -38,5 +49,9 @@
     .contain {
         position: relative;
         height: 100vh;
+    }
+
+    .el-tab-pane,.hot{
+        height: 30vh;
     }
 </style>

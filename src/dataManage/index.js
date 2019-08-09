@@ -20,8 +20,8 @@ export const getUrl = function (url) {
     })
 };
 
-export const play = function (id) {
-    let url = 'https://v1.itooi.cn/tencent/url?id=' + id + '&quality=128&isRedirect=0';
+export const getPlayUrl = function (id) {
+    let url = 'https://v1.itooi.cn/tencent/url?id=' + id + '&quality=320&isRedirect=0';
     return getUrl(url);
 };
 
@@ -29,8 +29,4 @@ export const getImgUrl = function (id) {
     let url = 'https://v1.itooi.cn/tencent/pic?id='+id+'&isRedirect=0';
     return getUrl(url);
 }
-
-export const downLoad = function (id = 0) {
-
-};
 
