@@ -1,6 +1,6 @@
 <template>
     <div class="search">
-        <el-input v-model="input" placeholder="请输入内容">
+        <el-input v-model="input" ref="searchTag" placeholder="请输入内容"  >
             <el-button slot="append" icon="el-icon-search" @click="searchHandel"></el-button>
         </el-input>
     </div>
@@ -12,30 +12,45 @@
 
     export default {
         name: "index",
-        data:function(){
-          return {
-              input:'text1',
-          }
+        props: {
+            type: {
+                type: Number,
+                default: 1,//默认首页
+            }
+        },
+        data: function () {
+            return {
+                input: '童年',
+            }
         },
 
 
-        methods:{
-            searchHandel(){
+
+        methods: {
+
+            searchHandel() {
+
                 let _this = this;
                 let keywords = this.input;
                 search({
                     keywords
                 }).then(function (data) {
-                    _this.$emit('result',data);
+                    //   //子父组件之间的传值   子传父  暂时不用啦  用的vuex方便一点
+                    // _this.$emit('result', data);
+                    _this.$store.commit('list/setResults',data);
+                    _this.$store.commit('list/setSearchParams',{keywords});
+                    if(_this.type ===1){
+                        _this.$router.push('/list');
+                    }
 
-              });
+                });
             }
         }
     }
 </script>
 
 <style scoped>
-    .search{
+    .search {
         height: 10vh;
     }
 </style>

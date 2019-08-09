@@ -2,9 +2,9 @@
     <div class="list">
 
         <Header></Header>
-        <Search @result="getResultfn"></Search>
+        <Search @result="getResultfn" :type="type"></Search>
         <div id="result">
-            <List :data='data'></List>
+            <List :data='data2'></List>
         </div>
 
 
@@ -29,18 +29,16 @@
 
         data: function () {
             return {
-                data: [],
+                // data: [],
                 t: '11',
+                type:2
             }
         },
-        methods: {
-            getResultfn(data) {
-                // var a = this.data.slice(0)
-                // console.log('data',data);
-                // console.log('this',this.t);
-                // this.$set(this.data ,0, data[1])
-                // console.log('this.data',this.data);
-
+        computed:{
+            data2(){
+                let d2 = [];
+                console.log('1',this.$store.state.list);
+                let data = this.$store.state.list.searchResult;
                 for (let i = 0; i < data.length; i++) {
                     if (i < 5) {
                         let item = data[i];
@@ -56,11 +54,23 @@
                             songurl: item.songurl,
                             strMediaMid: item.strMediaMid
                         }
-                        this.$set(this.data, i, obj);
+                        d2.push(obj);
                     }else{
                         break;
                     }
                 }
+                return d2;
+            }
+        },
+        methods: {
+            getResultfn(data) {
+                // var a = this.data.slice(0)
+                // console.log('data',data);
+                // console.log('this',this.t);
+                // this.$set(this.data ,0, data[1])
+                // console.log('this.data',this.data);
+                //子父组件之间的传值   子传父
+
             }
         },
 

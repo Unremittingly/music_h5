@@ -1,10 +1,7 @@
 <template>
     <div class="bottom">
 <!--        {{a}}-->
-        <el-image class="album-img"
-                style="width: 10vw; height: 10vw"
-                :src="getImgUrl"
-                ></el-image>
+       <albumImg/>
         <audio v-bind:src="getPlayUrl" controls="controls">
             Your browser does not support the audio element.
         </audio>
@@ -13,8 +10,12 @@
 
 <script>
 
+    import albumImg from '../albumImg'
     export default {
         name: "index",
+        components:{
+            albumImg
+        },
         data(){
             return {
                 // url:this.$store.state.detail.playUrl,
@@ -24,9 +25,6 @@
         computed:{
             getPlayUrl(){
                 return this.$store.state.detail.playUrl
-            },
-            getImgUrl(){
-                return this.$store.state.detail.imgUrl
             }
         },
         created() {
@@ -50,16 +48,5 @@
         align-items: center;
     }
 
-    .album-img{
-        margin-right: 2vw;
-        border-radius: 50%;
-        border: 1px solid #eee;
-
-        animation: rota 5s linear infinite;
-    }
-    @keyframes rota {
-        0% {transform: rotate(0)}
-        100% {transform: rotate(360deg)}
-    }
 
 </style>
